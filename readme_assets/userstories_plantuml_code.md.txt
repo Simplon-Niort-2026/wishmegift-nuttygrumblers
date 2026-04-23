@@ -1,4 +1,6 @@
+```plantuml
 @startuml
+
 !theme amiga
 left to right direction
 
@@ -38,3 +40,4 @@ AUT --> (AUT2)
 AUT --> (AUT3)
 
 @enduml
+```
