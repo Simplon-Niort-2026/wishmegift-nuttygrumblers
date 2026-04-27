@@ -9,7 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -38,19 +40,28 @@ public class User {
     @Nonnull
     private String password;
 
-   /*  @ManyToOne
+    @ManyToOne
     @JoinTable(name ="wishlist")
-    private List <Wishlist> wishlist = new ArrayList(); */
+    private Wishlist wishlist;
+
+    @ManyToOne
+    @JoinTable(name ="gift")
+    private Gifts gifts;
+
+    @ManyToMany
+    @JoinTable(name="shared",joinColumns = @JoinColumn(name="wishlist_id"), inverseJoinColumns = @JoinColumn(name="user_id"))
+    private List <Wishlist> wishlistList = new ArrayList<>();
+
 
     public User(){
 
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
