@@ -15,7 +15,7 @@ public class Wishlist {
 
     // DEFINING TABLE COLUMNS
     @Id @Column(name = "wishlist_id", nullable = false) @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer wishlistId;
+    private Long wishlistId;
     
     @Column(name = "name", nullable = false, length = 50)
     private String name;
@@ -36,7 +36,7 @@ public class Wishlist {
     // DEFINING RELATIONS
     
     // GETTERS
-    public Integer getWishlistId() {
+    public Long getWishlistId() {
         return wishlistId;
     }
 
