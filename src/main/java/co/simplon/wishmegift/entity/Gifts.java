@@ -18,9 +18,9 @@ public class Gifts {
 
     private String link;
 
-    private int wishLevel;
+    private Integer wishLevel;
 
     @Column(nullable = false)
-    private int price;
+    private Integer price;
 
 }
