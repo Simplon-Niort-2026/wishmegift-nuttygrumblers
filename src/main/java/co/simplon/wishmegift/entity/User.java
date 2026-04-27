@@ -45,7 +45,7 @@ public class User {
     private Wishlist wishlist;
 
     @ManyToOne
-    @JoinTable(name ="gift")
+    @JoinTable(name ="gifts")
     private Gifts gifts;
 
     @ManyToMany
