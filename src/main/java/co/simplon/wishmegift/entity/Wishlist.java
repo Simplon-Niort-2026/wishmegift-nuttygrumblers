@@ -15,7 +15,7 @@ public class Wishlist {
 
     // DEFINING TABLE COLUMNS
     @Id @Column(name = "wishlist_id", nullable = false) @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int wishlistId;
+    private Integer wishlistId;
     
     @Column(name = "name", nullable = false, length = 50)
     private String name;
@@ -32,5 +32,52 @@ public class Wishlist {
     @Column(name = "for_author", nullable = false)
     private Boolean forAuthor;
 
+
     // DEFINING RELATIONS
+    
+    // GETTERS
+    public Integer getWishlistId() {
+        return wishlistId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ThemeEnum getTheme() {
+        return theme;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Date getEventDate() {
+        return eventDate;
+    }
+
+    public Boolean getForAuthor() {
+        return forAuthor;
+    }
+
+    // SETTERS
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setTheme(ThemeEnum theme) {
+        this.theme = theme;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setEventDate(Date eventDate) {
+        this.eventDate = eventDate;
+    }
+
+    public void setForAuthor(Boolean forAuthor) {
+        this.forAuthor = forAuthor;
+    }
 }
