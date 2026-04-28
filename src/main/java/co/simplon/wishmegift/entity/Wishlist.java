@@ -19,22 +19,22 @@ import jakarta.persistence.Table;
 public class Wishlist {
 
     // DEFINING TABLE COLUMNS
-    @Id @Column(name = "wishlist_id", nullable = false) @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @Column(nullable = false) @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String name;
 
-    @Column(name = "theme", nullable = false)
+    @Column(nullable = false)
     private ThemeEnum theme;
 
-    @Column(name = "description", nullable = true)
+    @Column(nullable = true)
     private String description;
 
-    @Column(name = "event_date", nullable = true)
+    @Column(nullable = true)
     private Date eventDate;
 
-    @Column(name = "for_author", nullable = false)
+    @Column(nullable = false)
     private Boolean forAuthor;
 
     // DEFINING RELATIONS
