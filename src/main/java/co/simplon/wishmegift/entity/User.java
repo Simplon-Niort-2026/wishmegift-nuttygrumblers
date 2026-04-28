@@ -44,7 +44,7 @@ public class User {
     private List<Gifts> gifts;
 
     @ManyToMany
-    @JoinTable(name="shared",joinColumns = @JoinColumn(name="wishlist_id"), inverseJoinColumns = @JoinColumn(name="user_id"))
+    @JoinTable(name="shared_wishlist",joinColumns = @JoinColumn(name="wishlist_id"), inverseJoinColumns = @JoinColumn(name="user_id"))
     private List<Wishlist> wishlistList = new ArrayList<>();
 
 

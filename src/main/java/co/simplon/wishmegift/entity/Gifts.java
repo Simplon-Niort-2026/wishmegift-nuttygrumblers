@@ -27,5 +27,5 @@ public class Gifts {
     private User buyer;
 
     @ManyToOne
-    private Wishlist wishlistId;
+    private Wishlist wishlist;
 }
