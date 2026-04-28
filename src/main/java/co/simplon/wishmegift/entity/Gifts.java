@@ -24,7 +24,7 @@ public class Gifts {
     private Integer price;
 
     @ManyToOne
-    private User userId;
+    private User buyer;
 
     @ManyToOne
     private Wishlist wishlistId;
