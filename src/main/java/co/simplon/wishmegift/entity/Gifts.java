@@ -23,4 +23,9 @@ public class Gifts {
     @Column(nullable = false)
     private Integer price;
 
+    @ManyToOne
+    private User userId;
+
+    @ManyToOne
+    private Wishlist wishlistId;
 }

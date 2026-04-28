@@ -12,7 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -40,17 +40,12 @@ public class User {
     @Nonnull
     private String password;
 
-    @ManyToOne
-    @JoinTable(name ="wishlist")
-    private Wishlist wishlist;
-
-    @ManyToOne
-    @JoinTable(name ="gifts")
-    private Gifts gifts;
+    @OneToMany(mappedBy = "id")
+    private List<Gifts> gifts;
 
     @ManyToMany
     @JoinTable(name="shared",joinColumns = @JoinColumn(name="wishlist_id"), inverseJoinColumns = @JoinColumn(name="user_id"))
-    private List <Wishlist> wishlistList = new ArrayList<>();
+    private List<Wishlist> wishlistList = new ArrayList<>();
 
 
     public User(){
