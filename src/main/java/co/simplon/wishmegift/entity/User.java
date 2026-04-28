@@ -40,7 +40,7 @@ public class User {
     @Nonnull
     private String password;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany
     private List<Gifts> gifts;
 
     @ManyToMany
