@@ -39,12 +39,12 @@ public class Wishlist {
 
     // DEFINING RELATIONS
     @ManyToMany(mappedBy = "wishlistList")
-    private List<User> users = new ArrayList<>();
+    private List<User> guests = new ArrayList<>();
 
     @ManyToOne
     private User creator;
 
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "wishlist")
     private List<Gifts> gifts = new ArrayList<>();
 
     // GETTERS

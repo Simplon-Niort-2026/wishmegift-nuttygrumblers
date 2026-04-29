@@ -12,7 +12,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -40,11 +39,18 @@ public class User {
     @Nonnull
     private String password;
 
-    @OneToMany(mappedBy = "id")
-    private List<Gifts> gifts;
+    @ManyToMany
+    @JoinTable(name = "shared_gift_buying",
+        joinColumns = @JoinColumn(name = "shared_user_id"),
+        inverseJoinColumns = @JoinColumn(name = "gift_id")
+    )
+    private List<Gifts> bookedGifts = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(name="shared",joinColumns = @JoinColumn(name="wishlist_id"), inverseJoinColumns = @JoinColumn(name="user_id"))
+    @JoinTable(name="shared_wishlist",
+        joinColumns = @JoinColumn(name="user_id"),
+        inverseJoinColumns = @JoinColumn(name="wishlist_id")
+    )
     private List<Wishlist> wishlistList = new ArrayList<>();
 
 
