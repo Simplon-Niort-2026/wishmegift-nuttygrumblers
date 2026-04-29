@@ -12,7 +12,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,36 +20,38 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    
     private Long id;
 
-    @Column(name = "lastname", nullable = false)
+    @Column(nullable = false)
     @Nonnull
     private String name;
 
-    @Column(name = "firstname", nullable = false)
+    @Column(nullable = false)
     @Nonnull
     private String firstname;
 
-    @Column(name= "email", nullable = false)
+    @Column(nullable = false)
     @Nonnull
     private String email;
 
-    @Column(name="password",nullable = false)
+    @Column(nullable = false)
     @Nonnull
     private String password;
 
-    @ManyToOne
-    @JoinTable(name ="wishlist")
-    private Wishlist wishlist;
-
-    @ManyToOne
-    @JoinTable(name ="gifts")
-    private Gifts gifts;
+    @ManyToMany
+    @JoinTable(name = "shared_gift_buying",
+        joinColumns = @JoinColumn(name = "shared_user_id"),
+        inverseJoinColumns = @JoinColumn(name = "gift_id")
+    )
+    private List<Gifts> bookedGifts = new ArrayList<>();
 
     @ManyToMany
-    @JoinTable(name="shared",joinColumns = @JoinColumn(name="wishlist_id"), inverseJoinColumns = @JoinColumn(name="user_id"))
-    private List <Wishlist> wishlistList = new ArrayList<>();
+    @JoinTable(name="shared_wishlist",
+        joinColumns = @JoinColumn(name="user_id"),
+        inverseJoinColumns = @JoinColumn(name="wishlist_id")
+    )
+    private List<Wishlist> wishlistList = new ArrayList<>();
 
 
     public User(){

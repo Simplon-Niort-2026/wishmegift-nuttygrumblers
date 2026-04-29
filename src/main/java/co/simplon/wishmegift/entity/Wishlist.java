@@ -1,12 +1,17 @@
 package co.simplon.wishmegift.entity;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,30 +19,37 @@ import jakarta.persistence.Table;
 public class Wishlist {
 
     // DEFINING TABLE COLUMNS
-    @Id @Column(name = "wishlist_id", nullable = false) @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long wishlistId;
+    @Id @Column(nullable = false) @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String name;
 
-    @Column(name = "theme", nullable = false)
+    @Column(nullable = false)
     private ThemeEnum theme;
 
-    @Column(name = "description", nullable = true)
+    @Column(nullable = true)
     private String description;
 
-    @Column(name = "event_date", nullable = true)
+    @Column(nullable = true)
     private Date eventDate;
 
-    @Column(name = "for_author", nullable = false)
+    @Column(nullable = false)
     private Boolean forAuthor;
 
-
     // DEFINING RELATIONS
-    
+    @ManyToMany(mappedBy = "wishlistList")
+    private List<User> guests = new ArrayList<>();
+
+    @ManyToOne
+    private User creator;
+
+    @OneToMany(mappedBy = "wishlist")
+    private List<Gifts> gifts = new ArrayList<>();
+
     // GETTERS
     public Long getWishlistId() {
-        return wishlistId;
+        return id;
     }
 
     public String getName() {

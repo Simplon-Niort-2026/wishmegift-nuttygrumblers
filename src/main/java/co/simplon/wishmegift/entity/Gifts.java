@@ -1,5 +1,8 @@
 package co.simplon.wishmegift.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -23,4 +26,9 @@ public class Gifts {
     @Column(nullable = false)
     private Integer price;
 
+    @ManyToMany(mappedBy = "bookedGifts")
+    private List<User> buyer = new ArrayList<>();
+
+    @ManyToOne
+    private Wishlist wishlist;
 }
