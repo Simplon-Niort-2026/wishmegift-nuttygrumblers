@@ -19,39 +19,39 @@ public class GiftController {
 
     private final GiftService giftService;
 
-    public GiftController (GiftService giftServiceInjected){
-        this.giftService= giftServiceInjected;
+    public GiftController(GiftService giftServiceInjected) {
+        this.giftService = giftServiceInjected;
     }
 
     @GetMapping("/gifts/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Gifts getGiftById(@PathVariable Long id){
+    public Gifts getGiftById(@PathVariable Long id) {
         return giftService.findById(id).orElse(null);
     }
 
     @PostMapping("gifts")
     @ResponseStatus(HttpStatus.CREATED)
-    public Gifts createGifts(@RequestBody Gifts gift){
+    public Gifts createGifts(@RequestBody Gifts gift) {
         return giftService.create(gift);
     }
 
     @PatchMapping("gifts/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Gifts updateGiftsPartialy(@PathVariable Long id, @RequestBody Gifts gift){
+    public Gifts updateGiftsPartialy(@PathVariable Long id, @RequestBody Gifts gift) {
         gift.setId(id);
         return giftService.create(gift);
     }
 
-     @PutMapping("gifts/{id}")
+    @PutMapping("gifts/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Gifts updateGifts(@PathVariable Long id, @RequestBody Gifts gift){
+    public Gifts updateGifts(@PathVariable Long id, @RequestBody Gifts gift) {
         gift.setId(id);
         return giftService.create(gift);
     }
 
     @DeleteMapping("/gifts/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteGift(@PathVariable Long id){
+    public void deleteGift(@PathVariable Long id) {
         giftService.deleteGiftById(id);
     }
 
