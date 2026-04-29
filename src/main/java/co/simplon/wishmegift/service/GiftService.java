@@ -18,7 +18,7 @@ public class GiftService {
         return this.giftRepository.save(gift);
     }
 
-    public Optional<Gifts> finById(final Long id) {
+    public Optional<Gifts> findById(final Long id) {
         return this.giftRepository.findById(id);
     }
 
