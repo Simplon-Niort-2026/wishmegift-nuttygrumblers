@@ -36,6 +36,7 @@ public class Wishlist {
     // DEFINING RELATIONS
     
     // GETTERS
+    
     public Long getWishlistId() {
         return wishlistId;
     }
@@ -79,5 +80,21 @@ public class Wishlist {
 
     public void setForAuthor(Boolean forAuthor) {
         this.forAuthor = forAuthor;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public List<User> getGuests() {
+        return guests;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public List<Gifts> getGifts() {
+        return gifts;
     }
 }
