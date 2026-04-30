@@ -48,7 +48,8 @@ public class Wishlist {
     private List<Gifts> gifts = new ArrayList<>();
 
     // GETTERS
-    public Long getWishlistId() {
+    
+    public Long getId() {
         return id;
     }
 
@@ -72,6 +73,18 @@ public class Wishlist {
         return forAuthor;
     }
 
+    public List<User> getGuests() {
+        return guests;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public List<Gifts> getGifts() {
+        return gifts;
+    }
+
     // SETTERS
     public void setName(String name) {
         this.name = name;
@@ -92,4 +105,5 @@ public class Wishlist {
     public void setForAuthor(Boolean forAuthor) {
         this.forAuthor = forAuthor;
     }
+
 }
