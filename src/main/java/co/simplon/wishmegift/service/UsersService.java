@@ -2,16 +2,21 @@ package co.simplon.wishmegift.service;
 
 
 import co.simplon.wishmegift.entity.User;
+import co.simplon.wishmegift.entity.Wishlist;
 import co.simplon.wishmegift.repository.UsersRepository;
+import co.simplon.wishmegift.repository.WishlistRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class UsersService {
 
     private final UsersRepository usersRepository;
+    private final WishlistRepository wishlistRepository;
     private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
 
 
@@ -19,9 +24,12 @@ public class UsersService {
         return usersRepository.findUserById(id);
     }
 
+    public List<Wishlist> findAllWishlistByUserId (Long id) {
+        return wishlistRepository.findAllWishlistByCreatorId(id);
+    }
+
     public void saveUser(User newUser) {
         newUser.setPassword(encoder.encode(newUser.getPassword()));
-        System.out.println(newUser.getEmail());
         usersRepository.save(newUser);
     }
 
