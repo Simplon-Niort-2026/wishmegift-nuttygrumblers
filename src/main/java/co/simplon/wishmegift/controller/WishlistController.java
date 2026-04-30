@@ -27,10 +27,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class WishlistController {
 
     private final WishlistService wls;
-    private final GiftService gs;
     WishlistController(WishlistService injectWishlistService, GiftService injectGiftService) {
         this.wls = injectWishlistService;
-        this.gs = injectGiftService;
     }
 
     // GET ALL WISHLISTS
