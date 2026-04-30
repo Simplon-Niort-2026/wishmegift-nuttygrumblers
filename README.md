@@ -28,3 +28,6 @@ Version PlantUML :
 
 ![Userstories UML](./readme_assets/images/userstories_uml.png)
 [Lien du PlantUML](./readme_assets/userstories_plantuml_code.md.txt)
+
+
+Lien pour voir la doc de la liste des Endpoints : http://localhost:8080/swagger-ui/index.html#
