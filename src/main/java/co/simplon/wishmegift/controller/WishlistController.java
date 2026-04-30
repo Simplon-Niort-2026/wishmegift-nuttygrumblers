@@ -119,13 +119,5 @@ public class WishlistController {
     }
     
     
-    // @GetMapping("/share")
-    // public ResponseEntity<Wishlist> getMethodName(@RequestParam String param) {
-    //     try {
-    //         return new ResponseEntity<>(HttpStatus.OK);
-    //     } catch (Exception e) {
-    //         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR)
-    //     }
-    // }
     
 }
